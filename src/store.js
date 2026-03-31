@@ -1,5 +1,6 @@
 export const initialStore=()=>{
   return{
+    contacts:[],
     message: null,
     todos: [
       {
@@ -26,6 +27,11 @@ export default function storeReducer(store, action = {}) {
         ...store,
         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
       };
+      case "update_contacts_list":
+        return {
+          ...store,
+          contacts: action.payload ///payload must be the new list
+        }
     default:
       throw Error('Unknown action.');
   }    
