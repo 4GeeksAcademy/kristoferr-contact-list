@@ -1,0 +1,28 @@
+.contact-image{
+    margin:5px;
+    padding:5px;
+}
+.contact-image img{
+    width:200px;
+    height:200px;
+}
+.contact-name{
+    font-size:35px;
+}
+.contact-address{
+    font-size:15px;
+}
+.contact-phone{
+    font-size:15px;
+}
+.contact-email{
+    font-size:15px;
+}
+.edit-icon{
+    width:30px;
+    height:30px;
+}
+.trash-icon{
+    width:30px;
+    height:30px;
+}
