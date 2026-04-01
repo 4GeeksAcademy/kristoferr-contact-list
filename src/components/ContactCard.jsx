@@ -6,7 +6,7 @@ import { MdEmail } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
-export const ContactCard = () => {
+export const ContactCard = ({contact, ...props}) => {
 
     return (
         <div className="container">
@@ -17,10 +17,10 @@ export const ContactCard = () => {
                     </div>
                 </div>
                 <div className="col-3">
-                    <div className="contact-name">Sara Anamedolla</div>
-                    <div className="contact-address"><FaMapMarkerAlt />5842 Hillcrest Rd</div>
-                    <div className="contact-phone"><FaPhone />870-288-4149</div>
-                    <div className="contact-email"><MdEmail />mike@mendoza.com</div>
+                    <div className="contact-name">{contact.name}</div>
+                    <div className="contact-address"><FaMapMarkerAlt />{contact.address}</div>
+                    <div className="contact-phone"><FaPhone />{contact.phone}</div>
+                    <div className="contact-email"><MdEmail />{contact.email}</div>
                 </div>
                 <div className="col-6">
                     <div className="contact-edit">

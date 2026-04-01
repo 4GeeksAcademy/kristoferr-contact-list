@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { ContactCard } from "../components/ContactCard.jsx";
+import { Contacts } from "./Contacts.jsx";
 
 export const Home = () => {
 
@@ -34,7 +35,7 @@ export const Home = () => {
 					return <li key={contact.id}>{contact.name}</li>;
 				})}
 			</ul>
-			<ContactCard/>
+			<Contacts/>
 		</div>
 	);
 }; 
