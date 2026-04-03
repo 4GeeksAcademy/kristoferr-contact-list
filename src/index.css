@@ -1,28 +1,106 @@
-.contact-image{
-    margin:5px;
-    padding:5px;
+/* Container spacing */
+.container {
+    margin-top: 20px;
 }
-.contact-image img{
-    width:200px;
-    height:200px;
+
+/* Contact Card */
+.row {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    align-items: center;
 }
-.contact-name{
-    font-size:35px;
+
+/* Hover effect */
+.row:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
-.contact-address{
-    font-size:15px;
+
+/* Image */
+.contact-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.contact-phone{
-    font-size:15px;
+
+.contact-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #f1f1f1;
 }
-.contact-email{
-    font-size:15px;
+
+/* Name */
+.contact-name {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 8px;
 }
-.edit-icon{
-    width:30px;
-    height:30px;
+
+/* Info text */
+.contact-address,
+.contact-phone,
+.contact-email {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
-.trash-icon{
-    width:30px;
-    height:30px;
+
+/* Icons spacing */
+.contact-address svg,
+.contact-phone svg,
+.contact-email svg {
+    color: #0d6efd;
+}
+
+/* Right side actions */
+.contact-edit,
+.contact-delete {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Edit button */
+.contact-edit {
+    background: #e7f1ff;
+    color: #0d6efd;
+}
+
+.contact-edit:hover {
+    background: #0d6efd;
+    color: #fff;
+}
+
+/* Delete button */
+.contact-delete {
+    background: #ffe7e7;
+    color: #dc3545;
+}
+
+.contact-delete:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+/* Align buttons right */
+.col-6 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
