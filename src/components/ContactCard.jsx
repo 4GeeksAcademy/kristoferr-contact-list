@@ -1,4 +1,5 @@
 import React from "react";
+import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { FaBeer } from 'react-icons/fa';
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
@@ -7,6 +8,49 @@ import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 
 export const ContactCard = ({contact, ...props}) => {
+
+    const {store, dispatch} =useGlobalReducer();
+
+    //grab contacts from API and send to store
+    function getContacts(){
+        const url="https://playground.4geeks.com/contact/agendas/kristofer/";
+        fetch(url)
+            .then((response)=> response.json())
+            .then((body) => {
+                const contacts = body.contacts;
+                const action = {
+                    type: "update_contacts",
+                    payload: contacts
+                }
+                dispatch(action);
+            })
+    };
+
+    const deleteContact = () => {
+        console.log("Deleted!", contact.id);
+        //https://playground.4geeks.com/contact/agendas/kristofer/contacts/ID
+
+        const url = `https://playground.4geeks.com/contact/agendas/kristofer/contacts/` + contact.id;
+        console.log(url);
+
+        fetch(url,{
+            method: "DELETE",
+        })
+        .then((response)=> response.json())
+        .then((body) => {
+            const contacts = body.contacts;
+            const action = {
+                type: "delete_contacts",
+                payload: contacts
+            }
+            dispatch(action);
+        })
+        getContacts(); 
+    };
+
+
+
+
 
     return (
         <div className="container">
@@ -27,7 +71,7 @@ export const ContactCard = ({contact, ...props}) => {
                         <FaEdit />
                     </div>
                     <div className="contact-delete">
-                        <FaTrash />
+                        <FaTrash onClick={deleteContact} />
                     </div>
                 </div>
             </div>
