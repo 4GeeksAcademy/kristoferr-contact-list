@@ -10,6 +10,7 @@ import { Home } from "./pages/Home";
 import { Single } from "./pages/Single";
 import { Contacts } from "./pages/Contacts";  
 import { ContactForm } from "./pages/ContactForm";
+import { EditContactForm } from "./pages/EditContactForm";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,6 +26,7 @@ export const router = createBrowserRouter(
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         {/* <Route path= "/" element={<Home />} /> */}
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
+        <Route path="/contacts/:contactID" element={ <EditContactForm />} />
         <Route path="/" element={<Contacts />} />
         <Route path="/new-contact" element={<ContactForm />}/>
         <Route path="/hellokris" element={<h1>Hello Kris</h1>}/>

@@ -6,10 +6,12 @@ import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { useNavigate, useParams } from "react-router-dom";
 
 export const ContactCard = ({contact, ...props}) => {
 
     const {store, dispatch} =useGlobalReducer();
+    const navigate = useNavigate();
 
     //grab contacts from API and send to store
     function getContacts(){
@@ -36,16 +38,15 @@ export const ContactCard = ({contact, ...props}) => {
         fetch(url,{
             method: "DELETE",
         })
-        .then((response)=> response.json())
-        .then((body) => {
-            const contacts = body.contacts;
-            const action = {
-                type: "delete_contacts",
-                payload: contacts
+        .then((response)=> {
+            if(response.ok){
+                getContacts();
             }
-            dispatch(action);
         })
-        getContacts(); 
+    };
+
+    const editContact = () => {
+        console.log("testing edit");
     };
 
 
@@ -68,7 +69,7 @@ export const ContactCard = ({contact, ...props}) => {
                 </div>
                 <div className="col-6">
                     <div className="contact-edit">
-                        <FaEdit />
+                        <FaEdit onClick={(event)=> navigate("/contacts/" + contact.id)} />
                     </div>
                     <div className="contact-delete">
                         <FaTrash onClick={deleteContact} />
